@@ -79,8 +79,7 @@ body{
     }
     
     #container button{
-        padding: 6px 12
-        px;
+        padding: 6px 12px;
         font-size: 14px;
     }
 }
