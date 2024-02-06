@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>joke_mood</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+      <div id="container">
+    <h3>Best Joke to make your day</h3>
+    <div id="joke">Joke is loading....</div>
+    <button id="btn">Next Joke</button>
+</div>
+<script>
+    const joke=document.querySelector("#joke")
+    const btn=document.querySelector("#btn")
+
+    const gernatejoke= async()=>{
+        
+        try{
+    const setheader={
+    headers:{
+        Accept:"application/json"
+    }
+}
+    const res=await fetch("https://icanhazdadjoke.com/",setheader)
+    const data=await res.json();
+    joke.innerHTML=data.joke
+
+}catch(err){
+    joke.innerHTML=`the error is ${err}`
+}
+}
+
+
+
+    btn.addEventListener('click',gernatejoke);
+    gernatejoke();
+</script>
+    
+</body>
+</html>
